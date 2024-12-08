@@ -64,7 +64,7 @@ export function HeroSection() {
             variants={fadeIn}
             className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-[400px]"
           >
-            Crafting innovative Web3 experiences and user-centric designs that bridge creativity with blockchain technology
+            Hi! I'm Saksham,Crafting innovative Web3 experiences and user-centric designs that bridge creativity with blockchain technology
           </motion.p>
           <motion.div 
             variants={fadeIn}

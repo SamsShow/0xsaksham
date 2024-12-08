@@ -5,68 +5,66 @@ import Image from "next/image";
 
 const testimonials = [
   {
-    quote: "Finding, hiring and managing remote tech talent with Athos has never been faster, easier or more flexible.",
-    author: "Carla Dormant",
-    position: "CEO, Level",
-    logo: "/continental.png",
-    metric: "87%",
-    metricLabel: "reduction in hiring costs"
+    name: "John Doe",
+    role: "Project Manager at TechCorp",
+    image: "/testimonial1.jpg",
+    text: "Working with Saksham was a fantastic experience. His attention to detail and innovative approach to blockchain solutions really set him apart.",
   },
   {
-    quote: "Athos has allowed us to deliver on relevant projects on time and strengthened our team.",
-    author: "Justin Rhiel Madsen",
-    position: "Design director, 3Lateral",
-    logo: "/3lateral.png",
-    metric: "7x",
-    metricLabel: "Faster than traditional hiring"
-  }
+    name: "Jane Smith",
+    role: "Lead Designer at DesignHub",
+    image: "/testimonial2.jpg",
+    text: "Saksham&apos;s UI/UX designs are both beautiful and functional. He has a great eye for detail and always delivers high-quality work.",
+  },
+  {
+    name: "Mike Johnson",
+    role: "CTO at Web3 Startup",
+    image: "/testimonial3.jpg",
+    text: "His expertise in Web3 development helped us launch our DeFi platform ahead of schedule. Highly recommended!",
+  },
 ];
 
 export function Testimonials() {
   return (
     <section className="py-32 px-6">
       <div className="max-w-[1400px] mx-auto">
-        <motion.h2
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          className="text-4xl md:text-5xl font-medium text-center mb-20"
+          className="text-center mb-16"
         >
-          Relied upon by a Fresh<br />Generation of Companies
-        </motion.h2>
+          <h2 className="text-4xl md:text-5xl font-medium mb-6">
+            Client Testimonials
+          </h2>
+          <p className="text-gray-400 text-lg">
+            What others say about working with me
+          </p>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
             <motion.div
-              key={testimonial.author}
+              key={testimonial.name}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.2 }}
-              className="card p-8 space-y-8"
+              className="card p-8"
             >
-              <div className="h-16 w-16 relative">
-                <Image
-                  src={testimonial.logo}
-                  alt={testimonial.author}
-                  fill
-                  className="object-contain"
-                />
-              </div>
-
-              <blockquote className="text-gray-400 text-lg">
-                "{testimonial.quote}"
-              </blockquote>
-
-              <div className="flex justify-between items-end">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="relative w-12 h-12">
+                  <Image
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    fill
+                    className="object-cover rounded-full"
+                  />
+                </div>
                 <div>
-                  <p className="font-medium">{testimonial.author}</p>
-                  <p className="text-gray-400 text-sm">{testimonial.position}</p>
-                </div>
-
-                <div className="text-right">
-                  <p className="text-3xl font-medium text-[#B4926A]">{testimonial.metric}</p>
-                  <p className="text-gray-400 text-sm">{testimonial.metricLabel}</p>
+                  <h3 className="font-medium">{testimonial.name}</h3>
+                  <p className="text-sm text-gray-400">{testimonial.role}</p>
                 </div>
               </div>
+              <p className="text-gray-400">{testimonial.text}</p>
             </motion.div>
           ))}
         </div>

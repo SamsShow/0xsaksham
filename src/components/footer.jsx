@@ -10,13 +10,18 @@ import { FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 const socialLinks = [
   {
     name: "Twitter",
-    url: "https://twitter.com/samsshow2",
+    url: "https://twitter.com/samscasm",
     icon: <FaTwitter className="w-5 h-5" />,
   },
   {
     name: "Instagram",
-    url: "https://instagram.com/sams.casm",
+    url: "https://instagram.com/samscasm",
     icon: <FaInstagram className="w-5 h-5" />,
+  },
+  {
+    name: "LinkedIn",
+    url: "https://linkedin.com/in/sakshamtyagi28",
+    icon: <FaLinkedin className="w-5 h-5" />,
   },
 ];
 
@@ -53,10 +58,10 @@ export function Footer() {
         >
           {/* Contact Info */}
           <div>
-            <h2 className="text-3xl font-bold mb-6">Let's Connect</h2>
+            <h2 className="text-3xl font-bold mb-6">Let&apos;s Connect</h2>
             <p className="text-gray-400 mb-8 max-w-md">
               Have a project in mind or just want to chat? Feel free to reach out.
-              I'm always open to discussing new opportunities and ideas.
+              I&apos;m always open to discussing new opportunities and ideas.
             </p>
             <div className="space-y-4">
               <p className="text-gray-400">

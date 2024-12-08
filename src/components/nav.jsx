@@ -1,55 +1,90 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 
-const navItems = [
-  { name: "Home", href: "/" },
-  { name: "Experience", href: "/experience" },
-  { name: "Projects", href: "/projects" },
-  { name: "Achievements", href: "/achievements" },
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/projects", label: "Projects" },
+  { href: "/experience", label: "Experience" },
+  { href: "/achievements", label: "Achievements" },
 ];
 
 export function Nav() {
-  return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      className="fixed top-0 left-0 right-0 z-50 py-6 px-6 bg-[#18191B]/80 backdrop-blur-sm"
-    >
-      <nav className="max-w-7xl mx-auto flex items-center justify-between">
-        <Link href="/" className="text-xl font-bold hover:text-purple-400 transition-colors">
-          Saksham Tyagi
-        </Link>
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-        <ul className="flex items-center gap-8">
-          {navItems.map((item, index) => (
-            <motion.li
-              key={item.name}
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-            >
-              <Link
-                href={item.href}
-                className="text-sm text-gray-400 hover:text-white transition-colors"
-              >
-                {item.name}
-              </Link>
-            </motion.li>
-          ))}
-          <motion.li
+  return (
+    <nav className="fixed top-0 inset-x-0 bg-background/50 backdrop-blur-lg z-50 h-16 border-b border-white/10">
+      <div className="max-w-[1400px] mx-auto h-full px-6">
+        <div className="flex items-center justify-between h-full">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="flex items-center gap-2"
+          >
+            <Image
+              src="/favicon.png"
+              alt="Logo"
+              width={32}
+              height={32}
+              className="rounded-md"
+            />
+            <span className="font-medium">Saksham Tyagi</span>
+          </motion.div>
+
+          {/* Desktop Menu */}
+          <motion.ul
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: navItems.length * 0.1 }}
+            className="hidden md:flex items-center gap-1"
           >
-            <Button asChild variant="outline" size="sm">
-              <a href="mailto:sakshamtyagi2008@gmail.com">Contact</a>
-            </Button>
-          </motion.li>
-        </ul>
-      </nav>
-    </motion.header>
+            {links.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="px-4 py-2 rounded-full hover:bg-white/5 transition-colors"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </motion.ul>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden p-2 hover:bg-white/5 rounded-lg transition-colors"
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="md:hidden absolute top-16 left-0 right-0 bg-background/95 backdrop-blur-lg border-b border-white/10"
+          >
+            <ul className="px-6 py-4 space-y-2">
+              {links.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="block px-4 py-2 rounded-lg hover:bg-white/5 transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        )}
+      </div>
+    </nav>
   );
 } 

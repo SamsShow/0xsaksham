@@ -6,6 +6,14 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "Saksham Tyagi - Portfolio",
   description: "Web3 Developer & UI/UX Designer",
+  icons: {
+    icon: [
+      {
+        url: "/favicon.png",
+        href: "/favicon.png",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({ children }) {

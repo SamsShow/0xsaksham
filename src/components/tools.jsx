@@ -14,6 +14,8 @@ import {
   SiAdobepremierepro,
   SiPython,
   SiCplusplus,
+  SiFramer,
+  SiShadcnui,
   SiVisualstudiocode
 } from "react-icons/si";
 
@@ -24,7 +26,7 @@ const tools = [
   { name: "Solidity", Icon: SiSolidity, color: "text-[#363636]", category: "Web3" },
   { 
     name: "Remix IDE", 
-    customIcon: "/remix-logo.png", 
+    customIcon: "/remix.png", 
     color: "text-purple-500", 
     category: "Web3" 
   },
@@ -33,8 +35,8 @@ const tools = [
   { name: "C++", Icon: SiCplusplus, color: "text-[#00599C]", category: "Programming" },
   { name: "Figma", Icon: SiFigma, color: "text-[#F24E1E]", category: "Design" },
   { name: "Illustrator", Icon: SiAdobeillustrator, color: "text-[#FF9A00]", category: "Design" },
-  { name: "Photoshop", Icon: SiAdobephotoshop, color: "text-[#31A8FF]", category: "Design" },
-  { name: "Premiere Pro", Icon: SiAdobepremierepro, color: "text-[#9999FF]", category: "Video" }
+  { name: "Framer Motion", Icon: SiFramer, color: "text-[#3776AB]", category: "Animation" },
+  { name: "Shadcn", Icon: SiShadcnui, color: "text-[#3776AB]", category: "Frontend" }
 ];
 
 export function Tools() {

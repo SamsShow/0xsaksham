@@ -11,36 +11,59 @@ const allAchievements = [
     title: "QuickNode BuildOn Hackathon",
     position: "3rd Place",
     description: "Awarded $2,000 in PYUSD for GasSaverX, integrating PayPal PYUSD payments and blockchain analytics.",
-    featured: true
+    featured: true,
+    category: "Hackathon"
   },
   {
     title: "ideaTON by TON Society India",
     position: "2nd Place",
     description: "Recognized with $180 prize for TONfi, promoting financial innovation in the TON ecosystem.",
-    featured: true
+    featured: true,
+    category: "Hackathon"
   },
   {
     title: "GFG HackFest 2024",
     position: "2nd Place",
     description: "Honored with $200 prize for a Web3 project focused on sustainable development.",
-    featured: true
+    featured: true,
+    category: "Hackathon"
   },
   {
-    title: "Elite Tech Community Hackathon",
-    position: "Finalist",
-    description: "Created an innovative blockchain solution for supply chain management.",
-    featured: false
+    title: "Aurora Hack The Spectrum",
+    position: "Potential Project Award",
+    description: "Earned the 'Deva the Devcon Unicorn: Potential Project Award' with an $80 prize as a solo contestant.",
+    featured: true,
+    category: "Hackathon"
   },
   {
-    title: "Web3 Development Course",
+    title: "IIT Delhi UX Hackathon",
+    position: "Top 10",
+    description: "Secured a position in the Top 10 among 170 teams in a rigorous 6-hour, 2-round UX Hackathon organized by IIT Delhi's design club.",
+    featured: true,
+    category: "Design"
+  },
+  {
+    title: "Ethereum Developer Degree",
     position: "Certification",
-    description: "Completed advanced certification in Web3 development and smart contract programming.",
-    featured: false
-  }
+    description: "Successfully completed the comprehensive Ethereum Developer Degree program from LearnWeb3, demonstrating expertise in blockchain development.",
+    featured: true,
+    category: "Certification"
+  },
+  {
+    title: "Live The Code 3.0",
+    position: "Top 25",
+    description: "Shortlisted among the Top 25 participants in the Live The Code 3.0 Hackathon organized by GFG ADGIPS.",
+    featured: true,
+    category: "Hackathon"
+  },
 ];
 
 export function AchievementsSection({ showAll = false }) {
-  const achievementsToShow = showAll ? allAchievements : allAchievements.filter(a => a.featured);
+  const achievementsToShow = showAll 
+    ? allAchievements 
+    : allAchievements
+        .filter(a => a.featured)
+        .slice(0, 3);
 
   useEffect(() => {
     initializeCardAnimations();
@@ -68,7 +91,7 @@ export function AchievementsSection({ showAll = false }) {
             </motion.p>
           </div>
 
-          {!showAll && (
+          {!showAll && achievementsToShow.length < allAchievements.length && (
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -86,8 +109,11 @@ export function AchievementsSection({ showAll = false }) {
               key={achievement.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="card p-8"
+              className="card p-8 bg-[#18191B]/80 backdrop-blur-sm"
             >
+              <span className="inline-block px-3 py-1 text-sm rounded-full bg-primary/10 text-primary mb-4">
+                {achievement.category}
+              </span>
               <h3 className="text-xl font-bold mb-2">{achievement.title}</h3>
               <p className="text-purple-400 mb-4">{achievement.position}</p>
               <p className="text-gray-400">{achievement.description}</p>

@@ -27,6 +27,13 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-purple-500/20 via-background to-background opacity-50" />
       </div>
 
+      {/* Background Text */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none -z-5">
+        <h1 className="text-[13vw] font-bold text-white/[0.03] whitespace-nowrap tracking-tighter">
+          SAKSHAM TYAGI
+        </h1>
+      </div>
+
       {/* Spline Scene */}
       <SplineScene />
       

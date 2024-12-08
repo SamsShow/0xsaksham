@@ -6,24 +6,63 @@
   :root {
     --background: 0 0% 9%;
     --foreground: 0 0% 100%;
+
     --card: 0 0% 11%;
     --card-foreground: 0 0% 100%;
+ 
     --popover: 0 0% 11%;
     --popover-foreground: 0 0% 100%;
-    --primary: 0 0% 100%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 15%;
-    --secondary-foreground: 0 0% 100%;
+ 
+    --primary: 267 100% 65%;
+    --primary-foreground: 0 0% 100%;
+ 
+    --secondary: 240 10% 3.9%;
+    --secondary-foreground: 0 0% 98%;
+ 
     --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 65%;
-    --accent: 0 0% 15%;
+    --muted-foreground: 240 5% 64.9%;
+ 
+    --accent: 267 100% 65%;
     --accent-foreground: 0 0% 100%;
+ 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 15%;
-    --input: 0 0% 15%;
-    --ring: 0 0% 80%;
-    --radius: 1rem;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 267 100% 65%;
+ 
+    --radius: 0.5rem;
+  }
+ 
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+ 
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+ 
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+ 
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+ 
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+ 
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+ 
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+ 
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+ 
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
   }
 }
 
@@ -98,6 +137,55 @@ html {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 24px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: -100%;
+  background: radial-gradient(
+    circle at center,
+    rgba(228, 0, 0, 0.04) 0%,
+    rgba(228, 0, 0, 0.02) 30%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover::after {
+  opacity: 0.4;
+  animation: shine 2s infinite;
+}
+
+@keyframes shine {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(10%, 10%);
+  }
+  50% {
+    transform: translate(0, 0);
+  }
+  75% {
+    transform: translate(-10%, -10%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.card.active::after {
+  opacity: 0.4;
+  transform: translate(
+    calc(var(--mouse-x, 0) * 0.1),
+    calc(var(--mouse-y, 0) * 0.1)
+  );
+  transition: transform 0.2s ease-out;
 }
 
 /* Project Card Overlap Effect */
@@ -128,6 +216,12 @@ html {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.tools-card:hover {
+  border-color: rgba(228, 0, 0, 0.4);
+  box-shadow: 0 8px 32px rgba(228, 0, 0, 0.1);
 }
 
 .stats-card {
@@ -136,4 +230,10 @@ html {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 20px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.stats-card:hover {
+  border-color: rgba(228, 0, 0, 0.4);
+  box-shadow: 0 8px 32px rgba(228, 0, 0, 0.1);
 }

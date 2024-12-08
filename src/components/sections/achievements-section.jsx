@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { useEffect } from "react";
+import { initializeCardAnimations } from "@/lib/card-animation";
 
 const allAchievements = [
   {
@@ -39,6 +41,10 @@ const allAchievements = [
 
 export function AchievementsSection({ showAll = false }) {
   const achievementsToShow = showAll ? allAchievements : allAchievements.filter(a => a.featured);
+
+  useEffect(() => {
+    initializeCardAnimations();
+  }, []);
 
   return (
     <section id="achievements" className="py-32 px-6 bg-black/20">

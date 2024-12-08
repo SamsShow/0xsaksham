@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { SplineScene } from "@/components/spline-scene";
+import { FaLinkedin } from "react-icons/fa";
+import { HiDownload } from "react-icons/hi";
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -45,11 +47,11 @@ export function HeroSection() {
             variants={fadeIn}
             className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6"
           >
-            <span className="bg-gradient-to-br from-purple-400 via-violet-400 to-indigo-400 bg-clip-text text-transparent">Creative</span>
+            <span className="bg-gradient-to-br from-red-400 via-red-600 to-violet-700 bg-clip-text text-transparent">Creative</span>
             <br />
-            <span className="bg-gradient-to-br from-purple-400 via-violet-400 to-indigo-400 bg-clip-text text-transparent">Developer &</span>
+            <span className="bg-gradient-to-br from-red-400 via-violet-500 to-red-800 bg-clip-text text-transparent">Developer &</span>
             <br />
-            <span className="bg-gradient-to-br from-purple-400 via-violet-400 to-indigo-400 bg-clip-text text-transparent">Designer</span>
+            <span className="bg-gradient-to-br from-purple-400 via-violet-400 to-red-400 bg-clip-text text-transparent">Designer</span>
           </motion.h1>
           <motion.p 
             variants={fadeIn}
@@ -66,7 +68,15 @@ export function HeroSection() {
               size="lg"
               className="rounded-full"
             >
-              <a href="#projects">View Projects</a>
+              <a 
+                href="https://www.linkedin.com/in/sakshamtyagi28/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2"
+              >
+                <FaLinkedin className="w-5 h-5" />
+                LinkedIn
+              </a>
             </Button>
             <Button
               asChild
@@ -74,7 +84,15 @@ export function HeroSection() {
               size="lg"
               className="rounded-full"
             >
-              <a href="mailto:sakshamtyagi2008@gmail.com">Contact Me</a>
+              <a 
+                href="/UpdatedResume.pdf"
+                download="Saksham_Tyagi_Resume.pdf"
+                type="application/pdf"
+                className="flex items-center gap-2"
+              >
+                <HiDownload className="w-5 h-5" />
+                Download CV
+              </a>
             </Button>
           </motion.div>
         </motion.div>

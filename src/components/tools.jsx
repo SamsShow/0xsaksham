@@ -1,19 +1,20 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { 
   SiReact, 
   SiNextdotjs, 
   SiTailwindcss, 
   SiSolidity, 
-  SiHardhat,
   SiEthereum,
   SiFigma,
   SiAdobeillustrator,
   SiAdobephotoshop,
   SiAdobepremierepro,
   SiPython,
-  SiCplusplus
+  SiCplusplus,
+  SiVisualstudiocode
 } from "react-icons/si";
 
 const tools = [
@@ -21,7 +22,12 @@ const tools = [
   { name: "Next.js", Icon: SiNextdotjs, color: "text-white", category: "Frontend" },
   { name: "TailwindCSS", Icon: SiTailwindcss, color: "text-[#06B6D4]", category: "Frontend" },
   { name: "Solidity", Icon: SiSolidity, color: "text-[#363636]", category: "Web3" },
-  { name: "Hardhat", Icon: SiHardhat, color: "text-yellow-400", category: "Web3" },
+  { 
+    name: "Remix IDE", 
+    customIcon: "/remix-logo.png", 
+    color: "text-purple-500", 
+    category: "Web3" 
+  },
   { name: "Ethers.js", Icon: SiEthereum, color: "text-[#627EEA]", category: "Web3" },
   { name: "Python", Icon: SiPython, color: "text-[#3776AB]", category: "Programming" },
   { name: "C++", Icon: SiCplusplus, color: "text-[#00599C]", category: "Programming" },
@@ -30,13 +36,6 @@ const tools = [
   { name: "Photoshop", Icon: SiAdobephotoshop, color: "text-[#31A8FF]", category: "Design" },
   { name: "Premiere Pro", Icon: SiAdobepremierepro, color: "text-[#9999FF]", category: "Video" }
 ];
-
-// Log to identify undefined icons
-tools.forEach(tool => {
-  if (!tool.Icon) {
-    console.error(`Icon for ${tool.name} is undefined. Check your imports.`);
-  }
-});
 
 export function Tools() {
   return (
@@ -65,10 +64,17 @@ export function Tools() {
               transition={{ delay: i * 0.1 }}
               className="tools-card p-6 flex flex-col items-center justify-center gap-4 group"
             >
-              {tool.Icon ? (
-                <tool.Icon className={`w-12 h-12 ${tool.color} transition-transform group-hover:scale-110`} />
+              {tool.customIcon ? (
+                <div className="relative w-12 h-12">
+                  <Image
+                    src={tool.customIcon}
+                    alt={tool.name}
+                    fill
+                    className="object-contain transition-transform group-hover:scale-110"
+                  />
+                </div>
               ) : (
-                <span className="text-red-500">Icon not found</span>
+                <tool.Icon className={`w-12 h-12 ${tool.color} transition-transform group-hover:scale-110`} />
               )}
               <span className="font-medium">{tool.name}</span>
               <span className="text-sm text-gray-400">{tool.category}</span>

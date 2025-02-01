@@ -9,57 +9,57 @@
 
     --card: 0 0% 11%;
     --card-foreground: 0 0% 100%;
- 
+
     --popover: 0 0% 11%;
     --popover-foreground: 0 0% 100%;
- 
+
     --primary: 267 100% 65%;
     --primary-foreground: 0 0% 100%;
- 
+
     --secondary: 240 10% 3.9%;
     --secondary-foreground: 0 0% 98%;
- 
+
     --muted: 0 0% 15%;
     --muted-foreground: 240 5% 64.9%;
- 
+
     --accent: 267 100% 65%;
     --accent-foreground: 0 0% 100%;
- 
+
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
     --ring: 267 100% 65%;
- 
+
     --radius: 0.5rem;
   }
- 
+
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
- 
+
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
- 
+
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
- 
+
     --primary: 210 40% 98%;
     --primary-foreground: 222.2 47.4% 11.2%;
- 
+
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
- 
+
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
- 
+
     --accent: 217.2 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;
- 
+
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
- 
+
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
@@ -85,7 +85,7 @@
   bottom: -150%;
   width: 200%;
   height: 300vh;
-  background-image: url('/noise.png');
+  background-image: url("/noise.png");
   background-repeat: repeat;
   background-size: 150px 150px;
   opacity: 0.12;
@@ -95,16 +95,37 @@
 }
 
 @keyframes grain {
-  0%, 100% { transform:translate(0, 0) }
-  10% { transform:translate(-5%, -10%) }
-  20% { transform:translate(-15%, 5%) }
-  30% { transform:translate(7%, -25%) }
-  40% { transform:translate(-5%, 25%) }
-  50% { transform:translate(-15%, 10%) }
-  60% { transform:translate(15%, 0%) }
-  70% { transform:translate(0%, 15%) }
-  80% { transform:translate(3%, 35%) }
-  90% { transform:translate(-10%, 10%) }
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-5%, -10%);
+  }
+  20% {
+    transform: translate(-15%, 5%);
+  }
+  30% {
+    transform: translate(7%, -25%);
+  }
+  40% {
+    transform: translate(-5%, 25%);
+  }
+  50% {
+    transform: translate(-15%, 10%);
+  }
+  60% {
+    transform: translate(15%, 0%);
+  }
+  70% {
+    transform: translate(0%, 15%);
+  }
+  80% {
+    transform: translate(3%, 35%);
+  }
+  90% {
+    transform: translate(-10%, 10%);
+  }
 }
 
 /* Tools Scroll Animation */
@@ -142,52 +163,6 @@ html {
   transition: all 0.3s ease;
 }
 
-.card::after {
-  content: "";
-  position: absolute;
-  inset: -100%;
-  background: radial-gradient(
-    circle at center,
-    rgba(228, 0, 0, 0.04) 0%,
-    rgba(228, 0, 0, 0.02) 30%,
-    transparent 70%
-  );
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.card:hover::after {
-  opacity: 0.4;
-  animation: shine 2s infinite;
-}
-
-@keyframes shine {
-  0% {
-    transform: translate(0, 0);
-  }
-  25% {
-    transform: translate(10%, 10%);
-  }
-  50% {
-    transform: translate(0, 0);
-  }
-  75% {
-    transform: translate(-10%, -10%);
-  }
-  100% {
-    transform: translate(0, 0);
-  }
-}
-
-.card.active::after {
-  opacity: 0.4;
-  transform: translate(
-    calc(var(--mouse-x, 0) * 0.1),
-    calc(var(--mouse-y, 0) * 0.1)
-  );
-  transition: transform 0.2s ease-out;
-}
-
 /* Project Card Overlap Effect */
 .project-grid {
   @apply grid gap-6;
@@ -196,16 +171,11 @@ html {
 
 .project-card {
   @apply relative;
-  margin-top: -2rem;
-}
-
-.project-card:first-child {
-  margin-top: 0;
 }
 
 @screen md {
   .project-card {
-    margin-top: -4rem;
+    margin-top: 0;
   }
 }
 
@@ -221,7 +191,6 @@ html {
 
 .tools-card:hover {
   border-color: rgba(228, 0, 0, 0.4);
-  box-shadow: 0 8px 32px rgba(228, 0, 0, 0.1);
 }
 
 .stats-card {
@@ -235,5 +204,35 @@ html {
 
 .stats-card:hover {
   border-color: rgba(228, 0, 0, 0.4);
-  box-shadow: 0 8px 32px rgba(228, 0, 0, 0.1);
+}
+
+/* Loader Animations */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes spin-slower {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 2s linear infinite;
+}
+
+.animate-spin-slower {
+  animation: spin-slower 3s linear infinite;
 }

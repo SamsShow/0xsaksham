@@ -9,15 +9,15 @@ import { HiDownload } from "react-icons/hi";
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5 }
+  transition: { duration: 0.5 },
 };
 
 const staggerContainer = {
   animate: {
     transition: {
-      staggerChildren: 0.1
-    }
-  }
+      staggerChildren: 0.1,
+    },
+  },
 };
 
 export function HeroSection() {
@@ -35,14 +35,14 @@ export function HeroSection() {
       </div>
 
       {/* Content and Spline Scene Container */}
-      <div className="container mx-auto">
-        <div className="relative min-h-[calc(100vh-4rem)] flex flex-col lg:flex-row items-center justify-center gap-8">
+      <div className="container mx-auto relative">
+        <div className="min-h-[calc(100vh-4rem)] flex flex-col lg:flex-row items-center">
           {/* Content */}
           <motion.div
             initial="initial"
             animate="animate"
             variants={staggerContainer}
-            className="w-full lg:w-1/2 pt-8 lg:pt-0 lg:pl-24 z-10 text-center lg:text-left px-6"
+            className="w-full lg:w-1/2 pt-8 lg:pt-0 lg:pl-12 z-10 text-center lg:text-left px-6"
           >
             <motion.span
               variants={fadeIn}
@@ -50,34 +50,38 @@ export function HeroSection() {
             >
               UI/UX DESIGNER & BLOCKCHAIN DEVELOPER
             </motion.span>
-            <motion.h1 
+            <motion.h1
               variants={fadeIn}
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6"
             >
-              <span className="bg-gradient-to-br from-red-400 via-red-600 to-violet-700 bg-clip-text text-transparent">Creative</span>
+              <span className="bg-gradient-to-br from-red-400 via-red-600 to-violet-700 bg-clip-text text-transparent">
+                Creative
+              </span>
               <br />
-              <span className="bg-gradient-to-br from-red-400 via-violet-500 to-red-800 bg-clip-text text-transparent">Developer &</span>
+              <span className="bg-gradient-to-br from-red-400 via-violet-500 to-red-800 bg-clip-text text-transparent">
+                Developer &
+              </span>
               <br />
-              <span className="bg-gradient-to-br from-purple-400 via-violet-400 to-red-400 bg-clip-text text-transparent">Designer</span>
+              <span className="bg-gradient-to-br from-purple-400 via-violet-400 to-red-400 bg-clip-text text-transparent">
+                Designer
+              </span>
             </motion.h1>
-            <motion.p 
+            <motion.p
               variants={fadeIn}
               className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 max-w-[400px] mx-auto lg:mx-0"
             >
-              Hi! I&apos;m Saksham, Crafting innovative Web3 experiences and user-centric designs that bridge creativity with blockchain technology
+              Hi! I&apos;m Saksham, Crafting innovative Web3 experiences and
+              user-centric designs that bridge creativity with blockchain
+              technology
             </motion.p>
-            <motion.div 
+            <motion.div
               variants={fadeIn}
               className="flex flex-wrap gap-4 justify-center lg:justify-start"
             >
-              <Button
-                asChild
-                size="lg"
-                className="rounded-full"
-              >
-                <a 
-                  href="https://www.linkedin.com/in/sakshamtyagi28/" 
-                  target="_blank" 
+              <Button asChild size="lg" className="rounded-full">
+                <a
+                  href="https://www.linkedin.com/in/sakshamtyagi28/"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2"
                 >
@@ -91,7 +95,7 @@ export function HeroSection() {
                 size="lg"
                 className="rounded-full"
               >
-                <a 
+                <a
                   href="/UpdatedResume.pdf"
                   download="Saksham_Tyagi_Resume.pdf"
                   type="application/pdf"
@@ -104,14 +108,12 @@ export function HeroSection() {
             </motion.div>
           </motion.div>
 
-          {/* Spline Scene Container - Hidden on mobile, larger on desktop */}
-          <div className="hidden lg:block w-full lg:w-3/5 h-[calc(100vh-4rem)] relative">
-            <div className="absolute inset-0 scale-125">
-              <SplineScene />
-            </div>
+          {/* Spline Scene Container */}
+          <div className="hidden lg:block w-full lg:w-1/2 h-screen relative">
+            <SplineScene />
           </div>
         </div>
       </div>
     </section>
   );
-} 
+}

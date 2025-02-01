@@ -4,35 +4,47 @@ import { motion } from "framer-motion";
 
 const experiences = [
   {
+    title: "Full Stack Developer",
+    company: "REWARDSY",
+    period: "Jan 2025",
+    description:
+      "I am working on innovative web application that enhance customer engagement through dynamic, personalized QR code solutions.",
+  },
+  {
     title: "UI Designer",
     company: "IKnowSpots",
     period: "Feb 2024 - July 2024",
-    description: "As an Intern UI designer, I have worked on a diverse range of projects involving both Web3 and Web2 UI designs."
+    description:
+      "As an Intern UI designer, I have worked on a diverse range of projects involving both Web3 and Web2 UI designs.",
   },
   {
     title: "Open Source Coordinator",
     company: "GeeksforGeeks ABESEC",
     period: "Oct 2023 - Jan 2024",
-    description: "Led open source initiatives and coordinated community projects."
+    description:
+      "Led open source initiatives and coordinated community projects.",
   },
   {
     title: "Graphics & Development Coordinator",
     company: "CodeChef ABESEC",
     period: "Oct 2023 - July 2024",
-    description: "Managed visual design and development aspects of coding community projects."
+    description:
+      "Managed visual design and development aspects of coding community projects.",
   },
   {
     title: "Frontend Web Developer",
     company: "Elite Tech Community",
     period: "May 2023",
-    description: "Designed the Front End of the Event page using HTML, CSS & JS."
+    description:
+      "Designed the Front End of the Event page using HTML, CSS & JS.",
   },
   {
     title: "Graphic Coordinator",
     company: "GeeksforGeeks ABESEC",
     period: "Jan 2023-Oct 2023",
-    description: "Created visual content and managed design assets for tech community events."
-  }
+    description:
+      "Created visual content and managed design assets for tech community events.",
+  },
 ];
 
 export function ExperienceSection() {
@@ -45,8 +57,12 @@ export function ExperienceSection() {
           transition={{ duration: 1 }}
           className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-medium mb-6">My Experience</h2>
-          <p className="text-gray-400 text-lg">Journey through my professional experiences</p>
+          <h2 className="text-4xl md:text-5xl font-medium mb-6">
+            My Experience
+          </h2>
+          <p className="text-gray-400 text-lg">
+            Journey through my professional experiences
+          </p>
         </motion.div>
 
         <div className="relative">
@@ -61,14 +77,17 @@ export function ExperienceSection() {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.2 }}
-                className={`flex items-center ${index % 2 === 0 ? 'flex-row-reverse' : ''} gap-8`}
+                className={`flex items-center ${
+                  index % 2 === 0 ? "flex-row-reverse" : ""
+                } gap-8`}
               >
                 {/* Content */}
-                <div className={`w-1/2 ${index % 2 === 0 ? 'text-right' : 'text-left'}`}>
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    className="card p-8"
-                  >
+                <div
+                  className={`w-1/2 ${
+                    index % 2 === 0 ? "text-right" : "text-left"
+                  }`}
+                >
+                  <motion.div className="card p-8">
                     <h3 className="text-2xl font-bold mb-2 bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">
                       {exp.title}
                     </h3>
@@ -90,4 +109,4 @@ export function ExperienceSection() {
       </div>
     </section>
   );
-} 
+}

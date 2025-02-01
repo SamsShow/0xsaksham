@@ -3,71 +3,70 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { useEffect } from "react";
-import { initializeCardAnimations } from "@/lib/card-animation";
 
 const allAchievements = [
   {
     title: "QuickNode BuildOn Hackathon",
     position: "3rd Place",
-    description: "Awarded $2,000 in PYUSD for GasSaverX, integrating PayPal PYUSD payments and blockchain analytics.",
+    description:
+      "Awarded $2,000 in PYUSD for GasSaverX, integrating PayPal PYUSD payments and blockchain analytics.",
     featured: true,
-    category: "Hackathon"
+    category: "Hackathon",
   },
   {
     title: "ideaTON by TON Society India",
     position: "2nd Place",
-    description: "Recognized with $180 prize for TONfi, promoting financial innovation in the TON ecosystem.",
+    description:
+      "Recognized with $180 prize for TONfi, promoting financial innovation in the TON ecosystem.",
     featured: true,
-    category: "Hackathon"
+    category: "Hackathon",
   },
   {
     title: "GFG HackFest 2024",
     position: "2nd Place",
-    description: "Honored with $200 prize for a Web3 project focused on sustainable development.",
+    description:
+      "Honored with $200 prize for a Web3 project focused on sustainable development.",
     featured: true,
-    category: "Hackathon"
+    category: "Hackathon",
   },
   {
     title: "Aurora Hack The Spectrum",
     position: "Potential Project Award",
-    description: "Earned the 'Deva the Devcon Unicorn: Potential Project Award' with an $80 prize as a solo contestant.",
+    description:
+      "Earned the 'Deva the Devcon Unicorn: Potential Project Award' with an $80 prize as a solo contestant.",
     featured: true,
-    category: "Hackathon"
+    category: "Hackathon",
   },
   {
     title: "IIT Delhi UX Hackathon",
     position: "Top 10",
-    description: "Secured a position in the Top 10 among 170 teams in a rigorous 6-hour, 2-round UX Hackathon organized by IIT Delhi's design club.",
+    description:
+      "Secured a position in the Top 10 among 170 teams in a rigorous 6-hour, 2-round UX Hackathon organized by IIT Delhi's design club.",
     featured: true,
-    category: "Design"
+    category: "Design",
   },
   {
     title: "Ethereum Developer Degree",
     position: "Certification",
-    description: "Successfully completed the comprehensive Ethereum Developer Degree program from LearnWeb3, demonstrating expertise in blockchain development.",
+    description:
+      "Successfully completed the comprehensive Ethereum Developer Degree program from LearnWeb3, demonstrating expertise in blockchain development.",
     featured: true,
-    category: "Certification"
+    category: "Certification",
   },
   {
     title: "Live The Code 3.0",
     position: "Top 25",
-    description: "Shortlisted among the Top 25 participants in the Live The Code 3.0 Hackathon organized by GFG ADGIPS.",
+    description:
+      "Shortlisted among the Top 25 participants in the Live The Code 3.0 Hackathon organized by GFG ADGIPS.",
     featured: true,
-    category: "Hackathon"
+    category: "Hackathon",
   },
 ];
 
 export function AchievementsSection({ showAll = false }) {
-  const achievementsToShow = showAll 
-    ? allAchievements 
-    : allAchievements
-        .filter(a => a.featured)
-        .slice(0, 3);
-
-  useEffect(() => {
-    initializeCardAnimations();
-  }, []);
+  const achievementsToShow = showAll
+    ? allAchievements
+    : allAchievements.filter((a) => a.featured).slice(0, 3);
 
   return (
     <section id="achievements" className="py-32 px-6 bg-black/20">
@@ -81,7 +80,7 @@ export function AchievementsSection({ showAll = false }) {
             >
               {showAll ? "All Achievements" : "Featured Achievements"}
             </motion.h2>
-            
+
             <motion.p
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -92,10 +91,7 @@ export function AchievementsSection({ showAll = false }) {
           </div>
 
           {!showAll && achievementsToShow.length < allAchievements.length && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-            >
+            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
               <Button asChild variant="outline">
                 <Link href="/achievements">View All Achievements</Link>
               </Button>
@@ -123,4 +119,4 @@ export function AchievementsSection({ showAll = false }) {
       </div>
     </section>
   );
-} 
+}

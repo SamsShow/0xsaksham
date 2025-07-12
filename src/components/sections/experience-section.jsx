@@ -4,11 +4,11 @@ import { motion } from "framer-motion";
 
 const experiences = [
   {
-    title: "Full Stack Developer",
+    title: "Full Stack Developer Intern",
     company: "REWARDSY",
-    period: "Jan 2025",
+    period: "Jan 2025 - Feb 2025",
     description:
-      "I am working on innovative web application that enhance customer engagement through dynamic, personalized QR code solutions.",
+      "Worked on innovative web applications that enhance customer engagement through dynamic, personalized QR code solutions. Developed features using modern web technologies and contributed to the overall platform architecture.",
   },
   {
     title: "UI Designer",

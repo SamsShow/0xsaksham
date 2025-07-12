@@ -16,13 +16,29 @@ import {
   SiCplusplus,
   SiFramer,
   SiShadcnui,
-  SiVisualstudiocode
+  SiVisualstudiocode,
+  SiJavascript,
+  SiGit,
+  SiGithub,
+  SiC,
+  SiTypescript
 } from "react-icons/si";
 
 const tools = [
+  // Programming Languages
+  { name: "C", Icon: SiC, color: "text-[#A8B9CC]", category: "Programming" },
+  { name: "C++", Icon: SiCplusplus, color: "text-[#00599C]", category: "Programming" },
+  { name: "Python", Icon: SiPython, color: "text-[#3776AB]", category: "Programming" },
+  { name: "JavaScript", Icon: SiJavascript, color: "text-[#F7DF1E]", category: "Programming" },
+  { name: "TypeScript", Icon: SiTypescript, color: "text-[#3178C6]", category: "Programming" },
+  
+  // Frontend Technologies
   { name: "React", Icon: SiReact, color: "text-[#61DAFB]", category: "Frontend" },
   { name: "Next.js", Icon: SiNextdotjs, color: "text-white", category: "Frontend" },
   { name: "TailwindCSS", Icon: SiTailwindcss, color: "text-[#06B6D4]", category: "Frontend" },
+  { name: "Shadcn", Icon: SiShadcnui, color: "text-[#000000]", category: "Frontend" },
+  
+  // Web3 Technologies
   { name: "Solidity", Icon: SiSolidity, color: "text-[#363636]", category: "Web3" },
   { 
     name: "Remix IDE", 
@@ -31,12 +47,31 @@ const tools = [
     category: "Web3" 
   },
   { name: "Ethers.js", Icon: SiEthereum, color: "text-[#627EEA]", category: "Web3" },
-  { name: "Python", Icon: SiPython, color: "text-[#3776AB]", category: "Programming" },
-  { name: "C++", Icon: SiCplusplus, color: "text-[#00599C]", category: "Programming" },
+  { 
+    name: "Hardhat", 
+    customIcon: "/hardhat.png", 
+    color: "text-[#FFF100]", 
+    category: "Web3" 
+  },
+  { 
+    name: "Move (Aptos)", 
+    customIcon: "/move.png", 
+    color: "text-[#00D4AA]", 
+    category: "Web3" 
+  },
+  
+  // Design Tools
   { name: "Figma", Icon: SiFigma, color: "text-[#F24E1E]", category: "Design" },
   { name: "Illustrator", Icon: SiAdobeillustrator, color: "text-[#FF9A00]", category: "Design" },
-  { name: "Framer Motion", Icon: SiFramer, color: "text-[#3776AB]", category: "Animation" },
-  { name: "Shadcn", Icon: SiShadcnui, color: "text-[#3776AB]", category: "Frontend" }
+  { name: "Photoshop", Icon: SiAdobephotoshop, color: "text-[#31A8FF]", category: "Design" },
+  
+  // Version Control
+  { name: "Git", Icon: SiGit, color: "text-[#F05032]", category: "Version Control" },
+  { name: "GitHub", Icon: SiGithub, color: "text-white", category: "Version Control" },
+  
+  // Other Skills
+  { name: "Premiere Pro", Icon: SiAdobepremierepro, color: "text-[#9999FF]", category: "Video Editing" },
+  { name: "Framer Motion", Icon: SiFramer, color: "text-[#0055FF]", category: "Animation" },
 ];
 
 export function Tools() {
@@ -74,6 +109,10 @@ export function Tools() {
                     fill
                     className="object-contain transition-transform group-hover:scale-110"
                   />
+                </div>
+              ) : tool.textIcon ? (
+                <div className="w-12 h-12 flex items-center justify-center text-3xl transition-transform group-hover:scale-110">
+                  {tool.textIcon}
                 </div>
               ) : (
                 <tool.Icon className={`w-12 h-12 ${tool.color} transition-transform group-hover:scale-110`} />

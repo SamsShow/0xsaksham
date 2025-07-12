@@ -5,23 +5,29 @@ import { motion } from "framer-motion";
 import { sendEmail } from "@/app/actions";
 import { useRef, useState } from "react";
 import { toast } from "sonner";
-import { FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaTelegramPlane } from "react-icons/fa";
+import { RiTwitterXFill } from "react-icons/ri";
 
 const socialLinks = [
   {
-    name: "Twitter",
-    url: "https://twitter.com/samscasm",
-    icon: <FaTwitter className="w-5 h-5" />,
-  },
-  {
-    name: "Instagram",
-    url: "https://instagram.com/samscasm",
-    icon: <FaInstagram className="w-5 h-5" />,
-  },
-  {
     name: "LinkedIn",
-    url: "https://linkedin.com/in/sakshamtyagi28",
+    url: "https://www.linkedin.com/in/sakshamtyagi28/",
     icon: <FaLinkedin className="w-5 h-5" />,
+  },
+  {
+    name: "GitHub",
+    url: "https://github.com/SamsShow",
+    icon: <FaGithub className="w-5 h-5" />,
+  },
+  {
+    name: "X (Twitter)",
+    url: "https://x.com/SamsShow2",
+    icon: <RiTwitterXFill className="w-5 h-5" />,
+  },
+  {
+    name: "Telegram",
+    url: "https://t.me/samscasm",
+    icon: <FaTelegramPlane className="w-5 h-5" />,
   },
 ];
 
@@ -139,7 +145,7 @@ export function Footer() {
         </motion.div>
 
         <div className="mt-20 pt-8 border-t border-white/10 text-center text-gray-400">
-          <p>© 2024 Saksham Tyagi. All rights reserved.</p>
+          <p>© 2025 Saksham Tyagi. All rights reserved.</p>
         </div>
       </div>
     </footer>

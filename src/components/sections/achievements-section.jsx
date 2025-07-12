@@ -6,6 +6,30 @@ import Link from "next/link";
 
 const allAchievements = [
   {
+    title: "Move AI Hackathon 2025",
+    position: "3rd Place",
+    description:
+      "Awarded $4,000 for HypeFlow, an autonomous AI trading agent built on the Aptos blockchain to automate yield strategies and optimize DeFi portfolio management.",
+    featured: true,
+    category: "Hackathon",
+  },
+  {
+    title: "MSME Indeathon 4.0",
+    position: "Grant Recipient",
+    description:
+      "Secured $14,000 in grants for EnerXchange, recognizing its potential to revolutionize renewable energy trading. This funding will accelerate development and deployment of the decentralized energy platform across multiple microgrids.",
+    featured: true,
+    category: "Grant",
+  },
+  {
+    title: "Aptos Foundation Grant",
+    position: "Grant Recipient",
+    description:
+      "Received $900 in development grants from the Aptos Foundation to advance HypeFlow's autonomous trading capabilities. This grant supports the integration of advanced AI algorithms with Aptos blockchain infrastructure.",
+    featured: true,
+    category: "Grant",
+  },
+  {
     title: "QuickNode BuildOn Hackathon",
     position: "3rd Place",
     description:

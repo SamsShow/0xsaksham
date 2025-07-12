@@ -9,6 +9,66 @@ import { useState } from "react";
 const allProjects = {
   dev: [
     {
+      title: "Hyperflow AI",
+      description:
+        "An autonomous AI agent that monitors social sentiment on X (Twitter) for Aptos-based projects and automatically executes on-chain actions like token swaps and staking. Creates a viral feedback loop where increased hype drives investment activity on the Aptos mainnet using Move Agent Kit.",
+      tags: ["AI", "Aptos", "Move", "DeFi", "Social Trading"],
+      image: "/Hypeflow.png",
+      links: {
+        demo: "https://hypeflowai.tech/",
+        github: "https://github.com/SamsShow/Hyperflow",
+      },
+      featured: true,
+    },
+    {
+      title: "UmiKarma",
+      description:
+        "An AI-enhanced reputation system for the decentralized world featuring Sybil-resistant scoring, multi-platform aggregation of GitHub contributions and DAO participation, AI-powered analysis using GPT models, and exportable verifiable reputation certificates.",
+      tags: ["AI", "Reputation", "DAO", "Web3", "GPT"],
+      image: "/Umikarma.png",
+      links: {
+        demo: "https://umikarma-frontend.vercel.app",
+        github: "https://github.com/SamsShow/umikarma-frontend",
+      },
+      featured: true,
+    },
+    {
+      title: "DDay (DietTrackr)",
+      description:
+        "A modern Android diet tracking application with a sleek dark-themed UI and glass gradient cards. Features daily meal tracking, macro management, progress monitoring, local data storage, and meal notifications for comprehensive diet management.",
+      tags: ["Android", "Kotlin", "UI/UX", "Health", "Mobile"],
+      image: "/DDay.png",
+      links: {
+        demo: "https://github.com/SamsShow/DDay/releases/tag/test",
+        github: "https://github.com/SamsShow/DDay",
+      },
+      featured: false,
+    },
+    {
+      title: "EduImpact",
+      description:
+        "A blockchain-based educational platform connecting tech learners with corporate sponsors through decentralized scholarships. Features milestone-based learning, EDU token rewards, verifiable NFT credentials, and OpenCampus ID integration for transparent skill development tracking.",
+      tags: ["Blockchain", "Education", "DeFi", "NFTs", "Web3"],
+      image: "/EduImpact.png",
+      links: {
+        demo: "https://edu-impact.vercel.app",
+        github: "https://github.com/SamsShow/eduImpactt",
+      },
+      featured: true,
+    },
+    {
+      title: "GoalForge",
+      description:
+        "A comprehensive goal-setting and achievement tracking platform built with Next.js. Features community-driven goal sharing, progress tracking, NFT rewards for milestones, and a dashboard for managing personal and collaborative objectives with blockchain integration.",
+      tags: ["Next.js", "Web3", "NFTs", "Community", "Productivity"],
+      image: "/GoalForge.png",
+      links: {
+        demo: "https://goal-forge-three.vercel.app/",
+        github: "https://github.com/SamsShow/goalforged",
+      },
+      featured: true,
+    },
+    {
       title: "GasSaverX",
       description:
         "A comprehensive gas fee optimization tool leveraging QuickNode Streams and Odos API. Features PayPal USD integration and a portfolio dashboard powered by Coinpaprika API for tracking 50+ crypto assets.",
@@ -18,7 +78,7 @@ const allProjects = {
         demo: "https://gas-saver-x-xpva.vercel.app/",
         github: "https://github.com/SamsShow/GasSaverX",
       },
-      featured: true,
+      featured: false,
     },
     {
       title: "EnerXchange",
@@ -30,7 +90,7 @@ const allProjects = {
         demo: "https://ener-xchange-frontend.vercel.app/",
         github: "https://github.com/SamsShow/EnerXchange-Frontend",
       },
-      featured: true,
+      featured: false,
     },
     {
       title: "Decentralized Credit Scoring System",
@@ -42,7 +102,7 @@ const allProjects = {
         demo: "https://dcs-omega.vercel.app/",
         github: "#",
       },
-      featured: true,
+      featured: false,
     },
     {
       title: "TONfi",

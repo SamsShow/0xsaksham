@@ -31,6 +31,8 @@ export function Nav() {
               width={32}
               height={32}
               className="rounded-md"
+              loading="eager"
+              quality={85}
             />
             <span className="font-medium">Saksham Tyagi</span>
           </motion.div>

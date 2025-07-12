@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+// Import only the icons we need to reduce bundle size
 import { 
   SiReact, 
   SiNextdotjs, 
@@ -16,7 +17,6 @@ import {
   SiCplusplus,
   SiFramer,
   SiShadcnui,
-  SiVisualstudiocode,
   SiJavascript,
   SiGit,
   SiGithub,
@@ -141,6 +141,8 @@ export function Tools() {
                       alt={tool.name}
                       fill
                       className="object-contain transition-all duration-300 group-hover:drop-shadow-lg"
+                      loading="lazy"
+                      quality={75}
                     />
                   </div>
                 ) : tool.textIcon ? (

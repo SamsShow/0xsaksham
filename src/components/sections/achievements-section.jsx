@@ -98,16 +98,28 @@ export function AchievementsSection({ showAll = false }) {
         <motion.div className="flex justify-between items-end mb-16">
           <div>
             <motion.h2
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ 
+                duration: 0.8,
+                delay: 0.1,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }}
+              viewport={{ once: true }}
               className="text-4xl md:text-5xl font-medium mb-6"
             >
               {showAll ? "All Achievements" : "Featured Achievements"}
             </motion.h2>
 
             <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ 
+                duration: 0.8,
+                delay: 0.3,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }}
+              viewport={{ once: true }}
               className="text-gray-400 text-lg"
             >
               Recognition and accomplishments in tech and development
@@ -115,7 +127,16 @@ export function AchievementsSection({ showAll = false }) {
           </div>
 
           {!showAll && achievementsToShow.length < allAchievements.length && (
-            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
+            <motion.div 
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ 
+                duration: 0.8,
+                delay: 0.5,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }}
+              viewport={{ once: true }}
+            >
               <Button asChild variant="outline">
                 <Link href="/achievements">View All Achievements</Link>
               </Button>
@@ -123,20 +144,42 @@ export function AchievementsSection({ showAll = false }) {
           )}
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {achievementsToShow.map((achievement) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
+          {achievementsToShow.map((achievement, index) => (
             <motion.div
               key={achievement.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              className="card p-8 bg-[#18191B]/80 backdrop-blur-sm"
+              initial={{ 
+                opacity: 0, 
+                y: 30
+              }}
+              whileInView={{ 
+                opacity: 1, 
+                y: 0
+              }}
+              transition={{ 
+                delay: index * 0.1,
+                duration: 0.5,
+                ease: "easeOut"
+              }}
+              viewport={{ once: true, margin: "-30px" }}
+              whileHover={{ 
+                y: -3,
+                transition: { duration: 0.2 }
+              }}
+              className="card p-4 md:p-6 lg:p-8 bg-[#18191B]/80 backdrop-blur-sm hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300 group cursor-pointer"
             >
-              <span className="inline-block px-3 py-1 text-sm rounded-full bg-primary/10 text-primary mb-4">
+              <span className="inline-block px-3 py-1 text-sm rounded-full bg-primary/10 text-primary mb-4 group-hover:bg-primary/20 transition-colors duration-200">
                 {achievement.category}
               </span>
-              <h3 className="text-xl font-bold mb-2">{achievement.title}</h3>
-              <p className="text-purple-400 mb-4">{achievement.position}</p>
-              <p className="text-gray-400">{achievement.description}</p>
+              <h3 className="text-xl font-bold mb-2 group-hover:text-purple-400 transition-colors duration-200">
+                {achievement.title}
+              </h3>
+              <p className="text-purple-400 mb-4 group-hover:text-purple-300 transition-colors duration-200">
+                {achievement.position}
+              </p>
+              <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-200">
+                {achievement.description}
+              </p>
             </motion.div>
           ))}
         </div>

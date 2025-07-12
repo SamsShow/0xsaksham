@@ -6,6 +6,7 @@ import { Stats } from "@/components/stats";
 import { Tools } from "@/components/tools";
 import { Footer } from "@/components/footer";
 import { Loader } from "@/components/loader";
+import { SectionTransition, FadeInSection } from "@/components/page-transition";
 
 export default function Home() {
   return (
@@ -14,11 +15,21 @@ export default function Home() {
       <div className="grain" aria-hidden="true" />
       <Nav />
       <HeroSection />
-      <Stats />
-      <Tools />
-      <ProjectsSection />
-      <AchievementsSection />
-      <Footer />
+      <SectionTransition delay={0.2}>
+        <Stats />
+      </SectionTransition>
+      <FadeInSection direction="up" delay={0.3}>
+        <Tools />
+      </FadeInSection>
+      <SectionTransition delay={0.1}>
+        <ProjectsSection />
+      </SectionTransition>
+      <FadeInSection direction="up" delay={0.2}>
+        <AchievementsSection />
+      </FadeInSection>
+      <SectionTransition delay={0.3}>
+        <Footer />
+      </SectionTransition>
       <script
         data-name="BMC-Widget"
         src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"

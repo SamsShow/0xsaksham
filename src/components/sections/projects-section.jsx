@@ -186,16 +186,28 @@ export function ProjectsSection({ showAll = false }) {
         <motion.div className="flex justify-between items-end mb-16">
           <div>
             <motion.h2
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ 
+                duration: 0.8,
+                delay: 0.1,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }}
+              viewport={{ once: true }}
               className="text-4xl md:text-5xl font-medium mb-6"
             >
               {showAll ? "All Projects" : "Featured Projects"}
             </motion.h2>
 
             <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ 
+                duration: 0.8,
+                delay: 0.3,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }}
+              viewport={{ once: true }}
               className="text-gray-400 text-lg"
             >
               Innovative solutions at the intersection of blockchain and user
@@ -204,7 +216,16 @@ export function ProjectsSection({ showAll = false }) {
           </div>
 
           {!showAll && (
-            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
+            <motion.div 
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ 
+                duration: 0.8,
+                delay: 0.5,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }}
+              viewport={{ once: true }}
+            >
               <Button asChild variant="outline">
                 <Link href="/projects">View All Projects</Link>
               </Button>
@@ -213,51 +234,102 @@ export function ProjectsSection({ showAll = false }) {
         </motion.div>
 
         {/* Project Type Tabs */}
-        <div className="flex justify-center gap-4 mb-12">
-          <Button
-            variant={activeTab === "dev" ? "default" : "outline"}
-            onClick={() => setActiveTab("dev")}
-            className="rounded-full min-w-[120px]"
+        <motion.div 
+          className="flex justify-center gap-4 mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ 
+            duration: 0.6,
+            delay: 0.7,
+            ease: [0.25, 0.46, 0.45, 0.94]
+          }}
+          viewport={{ once: true }}
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ 
+              duration: 0.5,
+              delay: 0.8,
+              ease: [0.25, 0.46, 0.45, 0.94]
+            }}
+            viewport={{ once: true }}
           >
-            Dev Projects
-          </Button>
-          <Button
-            variant={activeTab === "uiux" ? "default" : "outline"}
-            onClick={() => setActiveTab("uiux")}
-            className="rounded-full min-w-[120px]"
+            <Button
+              variant={activeTab === "dev" ? "default" : "outline"}
+              onClick={() => setActiveTab("dev")}
+              className="rounded-full min-w-[120px]"
+            >
+              Dev Projects
+            </Button>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ 
+              duration: 0.5,
+              delay: 0.9,
+              ease: [0.25, 0.46, 0.45, 0.94]
+            }}
+            viewport={{ once: true }}
           >
-            UI/UX Projects
-          </Button>
-        </div>
+            <Button
+              variant={activeTab === "uiux" ? "default" : "outline"}
+              onClick={() => setActiveTab("uiux")}
+              className="rounded-full min-w-[120px]"
+            >
+              UI/UX Projects
+            </Button>
+          </motion.div>
+        </motion.div>
 
         <div className="relative space-y-8">
           {projectsToShow.map((project, index) => (
             <motion.div
               key={project.title}
-              initial={{ opacity: 0, y: 100 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2 }}
-              className="card p-8 md:p-12 bg-[#18191B]/90 backdrop-blur-sm rounded-xl hover:translate-y-[-3px] transition-all duration-300"
+              initial={{ 
+                opacity: 0, 
+                y: 50
+              }}
+              whileInView={{ 
+                opacity: 1, 
+                y: 0
+              }}
+              transition={{ 
+                delay: index * 0.1,
+                duration: 0.6,
+                ease: "easeOut"
+              }}
+              viewport={{ once: true, margin: "-50px" }}
+              whileHover={{ 
+                y: -4,
+                transition: { duration: 0.2, ease: "easeOut" }
+              }}
+              className="card p-4 md:p-8 lg:p-12 bg-[#18191B]/90 backdrop-blur-sm rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/10 hover:bg-[#1a1b1d]/95 group cursor-pointer"
             >
-              <div className="grid md:grid-cols-2 gap-8 items-center">
+                              <div className="grid md:grid-cols-2 gap-4 md:gap-8 items-center">
                 <div className="order-2 md:order-1">
-                  <h3 className="text-2xl font-bold mb-4">{project.title}</h3>
-                  <p className="text-gray-400 mb-6">{project.description}</p>
+                  <h3 className="text-2xl font-bold mb-4 group-hover:text-blue-400 transition-colors duration-300">
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-400 mb-6 group-hover:text-gray-300 transition-colors duration-300">
+                    {project.description}
+                  </p>
 
                   <div className="flex flex-wrap gap-2 mb-8">
-                    {project.tags.map((tag) => (
+                    {project.tags.map((tag, tagIndex) => (
                       <span
                         key={tag}
-                        className="px-3 py-1 bg-white/5 rounded-full text-sm"
+                        className="px-3 py-1 bg-white/5 rounded-full text-sm group-hover:bg-white/10 group-hover:text-blue-300 transition-all duration-200"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
 
-                  <div className="flex flex-wrap gap-4 relative z-50">
+                  <div className="flex flex-wrap gap-4 relative z-50 opacity-90 group-hover:opacity-100 transition-opacity duration-300">
                     {project.links.demo && project.links.demo !== "#" && (
-                      <Button asChild>
+                      <Button asChild className="hover:scale-102 transition-transform duration-150">
                         <a
                           href={project.links.demo}
                           target="_blank"
@@ -268,7 +340,7 @@ export function ProjectsSection({ showAll = false }) {
                       </Button>
                     )}
                     {project.links.github && project.links.github !== "#" && (
-                      <Button asChild variant="outline">
+                      <Button asChild variant="outline" className="hover:scale-102 transition-transform duration-150">
                         <a
                           href={project.links.github}
                           target="_blank"
@@ -279,7 +351,7 @@ export function ProjectsSection({ showAll = false }) {
                       </Button>
                     )}
                     {project.links.figma && (
-                      <Button asChild variant="outline">
+                      <Button asChild variant="outline" className="hover:scale-102 transition-transform duration-150">
                         <a
                           href={project.links.figma}
                           target="_blank"
@@ -290,7 +362,7 @@ export function ProjectsSection({ showAll = false }) {
                       </Button>
                     )}
                     {project.links.case && (
-                      <Button asChild variant="outline">
+                      <Button asChild variant="outline" className="hover:scale-102 transition-transform duration-150">
                         <a
                           href={project.links.case}
                           target="_blank"
@@ -305,12 +377,65 @@ export function ProjectsSection({ showAll = false }) {
 
                 <div className="order-1 md:order-2">
                   <div className="relative aspect-video overflow-hidden rounded-xl">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      className="object-cover"
-                    />
+                    {project.links.demo && project.links.demo !== "#" ? (
+                      <a 
+                        href={project.links.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block w-full h-full"
+                      >
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          fill
+                          className="object-cover transition-transform duration-300 group-hover:scale-105"
+                        />
+                      </a>
+                    ) : (
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    
+                    {/* Live Preview Overlay */}
+                    {project.links.demo && project.links.demo !== "#" && (
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 bg-black/40 backdrop-blur-sm">
+                        <div className="text-center">
+                          <div className="w-16 h-16 mx-auto mb-4 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-sm">
+                            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                          </div>
+                          <p className="text-white text-sm font-medium mb-2">Live Preview</p>
+                          <p className="text-white/80 text-xs">Click to view project</p>
+                        </div>
+                      </div>
+                    )}
+                    
+                    {/* Project Status Badge */}
+                    <div className="absolute top-4 right-4 transform translate-x-4 group-hover:translate-x-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                      <div className="flex items-center gap-1 px-2 py-1 bg-green-500/20 backdrop-blur-sm rounded-full">
+                        <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                        <span className="text-xs text-green-300">Live</span>
+                      </div>
+                    </div>
+                    
+                    <div className="absolute bottom-4 left-4 right-4 transform translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                      <div className="flex gap-2">
+                        {project.tags.slice(0, 3).map((tag, tagIndex) => (
+                          <span
+                            key={tag}
+                            className="px-2 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs text-white"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

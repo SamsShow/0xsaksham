@@ -67,16 +67,35 @@ export function ExperienceSection() {
 
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-purple-500 via-violet-500 to-indigo-500" />
+          <motion.div 
+            initial={{ scaleY: 0 }}
+            whileInView={{ scaleY: 1 }}
+            transition={{ duration: 2, ease: "easeInOut" }}
+            viewport={{ once: true }}
+            className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-purple-500 via-violet-500 to-indigo-500 origin-top"
+          />
 
           {/* Experience items */}
           <div className="space-y-16">
             {experiences.map((exp, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.2 }}
+                initial={{ 
+                  opacity: 0, 
+                  x: index % 2 === 0 ? 50 : -50,
+                  y: 20 
+                }}
+                whileInView={{ 
+                  opacity: 1, 
+                  x: 0,
+                  y: 0 
+                }}
+                transition={{ 
+                  delay: index * 0.1,
+                  duration: 0.5,
+                  ease: "easeOut"
+                }}
+                viewport={{ once: true, margin: "-30px" }}
                 className={`flex items-center ${
                   index % 2 === 0 ? "flex-row-reverse" : ""
                 } gap-8`}
@@ -87,18 +106,60 @@ export function ExperienceSection() {
                     index % 2 === 0 ? "text-right" : "text-left"
                   }`}
                 >
-                  <motion.div className="card p-8">
-                    <h3 className="text-2xl font-bold mb-2 bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">
+                  <motion.div 
+                    className="card p-8 hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300"
+                    whileHover={{ 
+                      scale: 1.02,
+                      transition: { duration: 0.2 }
+                    }}
+                  >
+                    <motion.h3 
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.2 + 0.3 }}
+                      className="text-2xl font-bold mb-2 bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent"
+                    >
                       {exp.title}
-                    </h3>
-                    <p className="text-purple-400 mb-2">{exp.company}</p>
-                    <p className="text-gray-400 text-sm mb-4">{exp.period}</p>
-                    <p className="text-gray-300">{exp.description}</p>
+                    </motion.h3>
+                    <motion.p 
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.2 + 0.4 }}
+                      className="text-purple-400 mb-2"
+                    >
+                      {exp.company}
+                    </motion.p>
+                    <motion.p 
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.2 + 0.5 }}
+                      className="text-gray-400 text-sm mb-4"
+                    >
+                      {exp.period}
+                    </motion.p>
+                    <motion.p 
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.2 + 0.6 }}
+                      className="text-gray-300"
+                    >
+                      {exp.description}
+                    </motion.p>
                   </motion.div>
                 </div>
 
                 {/* Timeline dot */}
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-purple-500 rounded-full border-4 border-background" />
+                <motion.div 
+                  initial={{ scale: 0, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  transition={{ 
+                    delay: index * 0.2 + 0.2,
+                    duration: 0.5,
+                    ease: "easeOut"
+                  }}
+                  viewport={{ once: true }}
+                  className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-purple-500 rounded-full border-4 border-background shadow-lg shadow-purple-500/50"
+                />
 
                 {/* Empty space for the other side */}
                 <div className="w-1/2" />

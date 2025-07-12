@@ -97,12 +97,12 @@ export function HeroSection() {
               >
                 <a
                   href="/UpdatedResume.pdf"
-                  download="Saksham_Tyagi_Resume.pdf"
+                  download="https://shorturl.at/QOlCm"
                   type="application/pdf"
                   className="flex items-center gap-2"
                 >
                   <HiDownload className="w-5 h-5" />
-                  Download CV
+                  Resume
                 </a>
               </Button>
             </motion.div>
